@@ -1,25 +1,25 @@
-name: 'Publish to itch.io'
-description: 'Use butler to upload game artifacts to itch.io'
+name: "Publish to itch.io"
+description: "Use butler to upload game artifacts to itch.io"
 inputs:
   api-key:
-    description: 'Butler API key'
+    description: "Butler API key"
     required: true
   channel:
-    description: 'itch.io channel name. For example: android, html, linux-appimage, osx or windows'
+    description: "itch.io channel name. For example: android, html, linux-appimage, osx or windows"
     required: true
   itch_user:
-    description: 'itch.io user name'
+    description: "itch.io user name"
     required: true
   itch_game:
-    description: 'itch.io game name'
+    description: "itch.io game name"
     required: true
   package:
-    description: 'The directory or file to upload'
+    description: "The directory or file to upload"
     required: true
   version:
-    description: 'game version'
+    description: "game version"
     required: false
-    default: ''
+    default: ""
 
 runs:
   using: composite
@@ -41,7 +41,7 @@ runs:
         fi
         mkdir ./tools 2>/dev/null || true
         pushd tools
-          curl -L -o ./butler.zip "https://broth.itch.ovh/butler/${BUTLER_PLATFORM}/LATEST/archive/default"
+          curl -L -o ./butler.zip "https://broth.itch.zone/butler/${BUTLER_PLATFORM}/LATEST/archive/default"
           unzip butler.zip
           chmod +x ./${BUTLER_EXEC}
         popd
